@@ -42,10 +42,10 @@
 #define HWCOPTERCONTROL_H
 
 // Object constants
-#define HWCOPTERCONTROL_OBJID 0xE9102F88
+#define HWCOPTERCONTROL_OBJID 0xF5F2DCBC
 #define HWCOPTERCONTROL_ISSINGLEINST 1
 #define HWCOPTERCONTROL_ISSETTINGS 1
-#define HWCOPTERCONTROL_NUMBYTES 8
+#define HWCOPTERCONTROL_NUMBYTES 10
 
 // Generic interface functions
 int32_t HwCopterControlInitialize();
@@ -62,6 +62,8 @@ typedef struct {
     uint8_t DSMxBind;
     uint8_t GyroRange;
     uint8_t AccelRange;
+    uint8_t MPU6000Rate;
+    uint8_t MPU6000DLPF;
 
 } __attribute__((packed)) __attribute__((aligned(4))) HwCopterControlData;
 
@@ -122,6 +124,12 @@ typedef enum { HWCOPTERCONTROL_GYRORANGE_250=0, HWCOPTERCONTROL_GYRORANGE_500=1,
 // Field AccelRange information
 /* Enumeration options for field AccelRange */
 typedef enum { HWCOPTERCONTROL_ACCELRANGE_2G=0, HWCOPTERCONTROL_ACCELRANGE_4G=1, HWCOPTERCONTROL_ACCELRANGE_8G=2, HWCOPTERCONTROL_ACCELRANGE_16G=3 } HwCopterControlAccelRangeOptions;
+// Field MPU6000Rate information
+/* Enumeration options for field MPU6000Rate */
+typedef enum { HWCOPTERCONTROL_MPU6000RATE_500=0, HWCOPTERCONTROL_MPU6000RATE_666=1, HWCOPTERCONTROL_MPU6000RATE_1000=2, HWCOPTERCONTROL_MPU6000RATE_2000=3, HWCOPTERCONTROL_MPU6000RATE_4000=4, HWCOPTERCONTROL_MPU6000RATE_8000=5 } HwCopterControlMPU6000RateOptions;
+// Field MPU6000DLPF information
+/* Enumeration options for field MPU6000DLPF */
+typedef enum { HWCOPTERCONTROL_MPU6000DLPF_256=0, HWCOPTERCONTROL_MPU6000DLPF_188=1, HWCOPTERCONTROL_MPU6000DLPF_98=2, HWCOPTERCONTROL_MPU6000DLPF_42=3, HWCOPTERCONTROL_MPU6000DLPF_20=4, HWCOPTERCONTROL_MPU6000DLPF_10=5, HWCOPTERCONTROL_MPU6000DLPF_5=6 } HwCopterControlMPU6000DLPFOptions;
 
 
 // set/Get functions
@@ -141,6 +149,10 @@ extern void HwCopterControlGyroRangeSet( uint8_t *NewGyroRange );
 extern void HwCopterControlGyroRangeGet( uint8_t *NewGyroRange );
 extern void HwCopterControlAccelRangeSet( uint8_t *NewAccelRange );
 extern void HwCopterControlAccelRangeGet( uint8_t *NewAccelRange );
+extern void HwCopterControlMPU6000RateSet( uint8_t *NewMPU6000Rate );
+extern void HwCopterControlMPU6000RateGet( uint8_t *NewMPU6000Rate );
+extern void HwCopterControlMPU6000DLPFSet( uint8_t *NewMPU6000DLPF );
+extern void HwCopterControlMPU6000DLPFGet( uint8_t *NewMPU6000DLPF );
 
 
 #endif // HWCOPTERCONTROL_H

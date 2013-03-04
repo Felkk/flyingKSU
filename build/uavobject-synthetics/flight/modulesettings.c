@@ -98,6 +98,7 @@ void ModuleSettingsSetDefaults(UAVObjHandle obj, uint16_t instId)
 	data.State[14] = 0;
 	data.State[15] = 0;
 	data.State[16] = 0;
+	data.State[17] = 0;
 	data.TelemetrySpeed = 5;
 	data.GPSSpeed = 5;
 	data.GPSDataProtocol = 1;
@@ -133,11 +134,11 @@ UAVObjHandle ModuleSettingsHandle()
  */
 void ModuleSettingsStateSet( uint8_t *NewState )
 {
-	UAVObjSetDataField(ModuleSettingsHandle(), (void*)NewState, offsetof( ModuleSettingsData, State), 17*sizeof(uint8_t));
+	UAVObjSetDataField(ModuleSettingsHandle(), (void*)NewState, offsetof( ModuleSettingsData, State), 18*sizeof(uint8_t));
 }
 void ModuleSettingsStateGet( uint8_t *NewState )
 {
-	UAVObjGetDataField(ModuleSettingsHandle(), (void*)NewState, offsetof( ModuleSettingsData, State), 17*sizeof(uint8_t));
+	UAVObjGetDataField(ModuleSettingsHandle(), (void*)NewState, offsetof( ModuleSettingsData, State), 18*sizeof(uint8_t));
 }
 void ModuleSettingsTelemetrySpeedSet( uint8_t *NewTelemetrySpeed )
 {
