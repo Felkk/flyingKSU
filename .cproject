@@ -105,7 +105,7 @@
 								<option id="com.atollic.truestudio.gcc.optimization.prep_garbage.57236120" name="Prepare dead code removal" superClass="com.atollic.truestudio.gcc.optimization.prep_garbage" value="true" valueType="boolean"/>
 								<option id="com.atollic.truestudio.gcc.optimization.prep_data.1162065117" name="Prepare dead data removal" superClass="com.atollic.truestudio.gcc.optimization.prep_data" value="true" valueType="boolean"/>
 								<option id="com.atollic.truestudio.gcc.cstandard.342060016" name="C standard" superClass="com.atollic.truestudio.gcc.cstandard" value="com.atollic.truestudio.gcc.cstandard.gnu99" valueType="enumerated"/>
-								<option id="com.atollic.truestudio.gcc.misc.otherflags.2117354676" name="Other options" superClass="com.atollic.truestudio.gcc.misc.otherflags" value="-std=gnu99 -mthumb -Os -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -lc -lgcc -mapcs-frame -fomit-frame-pointer -ffunction-sections -fdata-sections -Wall -Werror" valueType="string"/>
+								<option id="com.atollic.truestudio.gcc.misc.otherflags.2117354676" name="Other options" superClass="com.atollic.truestudio.gcc.misc.otherflags" value="-std=gnu99 -mthumb -Os -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -gdwarf-2 -ffast-math -mapcs-frame -fomit-frame-pointer -ffunction-sections -fdata-sections -Wall" valueType="string"/>
 								<option id="com.atollic.truestudio.exe.debug.toolchain.gcc.optimization.level.992188613" name="Optimization Level" superClass="com.atollic.truestudio.exe.debug.toolchain.gcc.optimization.level" value="com.atollic.truestudio.gcc.optimization.level.0s" valueType="enumerated"/>
 								<inputType id="com.atollic.truestudio.gcc.input.1855204588" superClass="com.atollic.truestudio.gcc.input"/>
 							</tool>
@@ -117,7 +117,8 @@
 								<option id="com.atollic.truestudio.ld.general.scriptfile.1690241676" name="Linker script" superClass="com.atollic.truestudio.ld.general.scriptfile" value="..\link_STM32F30x_flyingksu.ld" valueType="string"/>
 								<option id="com.atollic.truestudio.ld.optimization.do_garbage.1774678451" name="Dead code removal" superClass="com.atollic.truestudio.ld.optimization.do_garbage" value="true" valueType="boolean"/>
 								<option id="com.atollic.truestudio.ld.libraries.list.1272539808" name="Libraries" superClass="com.atollic.truestudio.ld.libraries.list"/>
-								<option id="com.atollic.truestudio.ld.misc.linkerflags.865014796" name="Other options" superClass="com.atollic.truestudio.ld.misc.linkerflags" value="-Wl,-cref,-u,Reset_Handler -mapcs-frame -fomit-frame-pointer -Wall -Wa -MD -MP -MF -nostartfiles -Wl -lc  -lm -lc -lg" valueType="string"/>
+								<option id="com.atollic.truestudio.ld.misc.linkerflags.865014796" name="Other options" superClass="com.atollic.truestudio.ld.misc.linkerflags" value="-nostartfiles -Wl,--cref,--gc-sections -lc -lgcc -lm -Wl,--warn-common -Wl,--fatal-warnings" valueType="string"/>
+								<option id="com.atollic.truestudio.ld.optimization.malloc_page_size.1726492637" name="Page size allocation for malloc()" superClass="com.atollic.truestudio.ld.optimization.malloc_page_size" value="com.atollic.truestudio.ld.optimization.malloc_page_size.128" valueType="enumerated"/>
 								<inputType id="com.atollic.truestudio.ld.input.441192221" name="Input" superClass="com.atollic.truestudio.ld.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
